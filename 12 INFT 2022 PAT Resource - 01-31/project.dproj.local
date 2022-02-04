@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/11/29 09:03:23.493.pas,C:\Users\PearlG\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\main.pas</Transaction>
+    <Transaction>2021/11/29 09:03:23.493.dfm,C:\Users\PearlG\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\main.dfm</Transaction>
+    <Transaction>2021/11/29 09:03:35.752.dproj,C:\Users\PearlG\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\PearlG\Desktop\12 2022 PAT Resource\project.dproj</Transaction>
+    <Transaction>2021/11/29 09:39:36.283.pas,C:\Users\PearlG\Desktop\12 2022 PAT Resource\Unit1.pas=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\dm2022.pas</Transaction>
+    <Transaction>2021/11/29 09:39:36.283.dfm,C:\Users\PearlG\Desktop\12 2022 PAT Resource\Unit1.dfm=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\dm2022.dfm</Transaction>
+    <Transaction>2021/11/29 12:57:11.177.pas,C:\Users\PearlG\Desktop\12 2022 PAT Resource\Unit1.pas=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\oop.pas</Transaction>
+    <Transaction>2021/11/29 13:02:31.520.pas,C:\Users\PearlG\Desktop\12 2022 PAT Resource\Unit1.pas=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\arrays.pas</Transaction>
+    <Transaction>2021/11/29 13:21:28.351.pas,C:\Users\PearlG\Desktop\12 2022 PAT Resource\Unit1.pas=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\settings.pas</Transaction>
+    <Transaction>2021/11/29 13:21:28.351.dfm,C:\Users\PearlG\Desktop\12 2022 PAT Resource\Unit1.dfm=C:\Users\PearlG\Desktop\12 2022 PAT Resource\app\settings.dfm</Transaction>
+    <Transaction>2022/01/21 14:05:21.679.pas,S:\2022\12 INFT\12 INFT 2022 PAT Resource - Empty File\Unit1.pas=S:\2022\12 INFT\12 INFT 2022 PAT Resource - Empty File\app\student.pas</Transaction>
+    <Transaction>2022/01/21 14:05:21.679.dfm,S:\2022\12 INFT\12 INFT 2022 PAT Resource - Empty File\Unit1.dfm=S:\2022\12 INFT\12 INFT 2022 PAT Resource - Empty File\app\student.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
