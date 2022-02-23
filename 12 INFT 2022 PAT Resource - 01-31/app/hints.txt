@@ -1,4 +1,0 @@
-Login into the program
-Connect
-Execute SQL
-Settings
