@@ -1,0 +1,53 @@
+unit oop;
+
+interface
+
+type TStudent = class(TObject)
+      private
+        adminNO   : String[7];
+        surname   : String;
+        firstName : String;
+        gender    : String;
+        email     : String;
+        mobile    : String;
+
+      public
+        constructor Create(pAdminNO : String);
+         function getAdminNO(): String;
+        procedure setAdminNO(pAdminNO : String);
+         function getSurname(): String;
+         function getFirstName(): String;
+         function getGender(): String;
+         function getEmail(): String;
+         function getMobile(): String;
+        procedure setSurname(pSurname : String);
+        procedure setFirstName(pFirstName : String);
+        procedure setGender(pGender : String);
+        procedure setEmail(pEmail : String);
+        procedure setMobile(pMobile : String);
+end;
+
+implementation
+
+{ TStudent }
+
+constructor TStudent.Create(pAdminNO: String);
+begin
+  self.setAdminNO(pAdminNO);
+end;
+
+procedure TStudent.setAdminNO(pAdminNO: String);
+begin
+ if (LENGTH(pAdminNO) > 3) AND
+    (LENGTH(pAdminNO) < 8) then
+    self.adminNO := pAdminNO;
+end;
+
+function TStudent.getAdminNO: String;
+begin
+  result := self.adminNO;
+end;
+
+
+
+end.

@@ -1,0 +1,159 @@
+object frmStudent: TfrmStudent
+  Left = 0
+  Top = 0
+  Caption = 'Student'
+  ClientHeight = 358
+  ClientWidth = 331
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 16
+    Top = 24
+    Width = 51
+    Height = 13
+    Caption = 'Admin NO:'
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 45
+    Width = 46
+    Height = 13
+    Caption = 'Surname:'
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 66
+    Width = 51
+    Height = 13
+    Caption = 'Firstname:'
+  end
+  object Label4: TLabel
+    Left = 16
+    Top = 128
+    Width = 28
+    Height = 13
+    Caption = 'Email:'
+  end
+  object Label5: TLabel
+    Left = 16
+    Top = 149
+    Width = 34
+    Height = 13
+    Caption = 'Mobile:'
+  end
+  object Label6: TLabel
+    Left = 16
+    Top = 90
+    Width = 39
+    Height = 13
+    Caption = 'Gender:'
+  end
+  object picture: TImage
+    Left = 218
+    Top = 21
+    Width = 105
+    Height = 125
+  end
+  object Label7: TLabel
+    Left = 16
+    Top = 180
+    Width = 43
+    Height = 13
+    Caption = 'Courses:'
+  end
+  object BitBtn1: TBitBtn
+    Left = 248
+    Top = 325
+    Width = 75
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkCancel
+    ParentDoubleBuffered = False
+    TabOrder = 0
+  end
+  object BitBtn2: TBitBtn
+    Left = 176
+    Top = 325
+    Width = 75
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkOK
+    ParentDoubleBuffered = False
+    TabOrder = 1
+  end
+  object edtAdminNo: TEdit
+    Left = 85
+    Top = 21
+    Width = 121
+    Height = 21
+    TabOrder = 2
+  end
+  object edtSurname: TEdit
+    Left = 85
+    Top = 42
+    Width = 121
+    Height = 21
+    TabOrder = 3
+  end
+  object edtFirstname: TEdit
+    Left = 85
+    Top = 63
+    Width = 121
+    Height = 21
+    TabOrder = 4
+  end
+  object edtEmail: TEdit
+    Left = 85
+    Top = 125
+    Width = 121
+    Height = 21
+    TabOrder = 5
+  end
+  object Edit1: TEdit
+    Left = 85
+    Top = 146
+    Width = 121
+    Height = 21
+    TabOrder = 6
+  end
+  object cboGender: TComboBox
+    Left = 85
+    Top = 84
+    Width = 121
+    Height = 21
+    TabOrder = 7
+    Text = '- Please select -'
+    Items.Strings = (
+      'Female'
+      'Male'
+      'Unknown')
+  end
+  object btnBrowse: TButton
+    Left = 218
+    Top = 144
+    Width = 105
+    Height = 25
+    Caption = 'Browse'
+    TabOrder = 8
+  end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Top = 199
+    Width = 307
+    Height = 120
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    TabOrder = 9
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+end
