@@ -198,11 +198,11 @@ begin result := (Length(pIn) > 0);
 end;
 
 function TValidator.checkOnlyCharacters(pIn: String): Boolean;
-begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ');
+begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 end;
 
 function TValidator.checkOnlyCharactersWithSpace(pIn: String): Boolean;
-begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ ');
+begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ');
 end;
 
 function TValidator.checkOnlyDigits(pIn: String): Boolean;
