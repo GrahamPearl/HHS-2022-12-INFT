@@ -1,6 +1,28 @@
 unit oop;
 
 interface
+Uses SysUtils;
+
+type TValidator = class(TObject)
+  private
+  public
+  constructor Create();
+   function checkOnlyCharacters(pIn : String): Boolean;
+   function checkOnlyDigits(pIn : String): Boolean;
+end;
+
+
+type TReport = class(TObject)
+    private
+       adminNO   : String[7];
+       aMark : Integer;
+    public
+      constructor Create(pAdminNo : String; pMark : Integer);
+      procedure updateMark(pMark : Integer);
+       function calcSymbol(): Char;
+       function display(): String;
+       function isPassed(): Boolean;
+end;
 
 type TStudent = class(TObject)
       private
@@ -10,6 +32,8 @@ type TStudent = class(TObject)
         gender    : String;
         email     : String;
         mobile    : String;
+
+           errors : String;
         function checkFieldSize( data : String; min : Byte; max : Byte) : Boolean;
 
       public
@@ -26,7 +50,12 @@ type TStudent = class(TObject)
         procedure setGender(pGender : String);
         procedure setEmail(pEmail : String);
         procedure setMobile(pMobile : String);
+
+         function getErrors() : String;
+        procedure clearErrors();
 end;
+
+
 
 implementation
 
@@ -38,15 +67,22 @@ begin
             (LENGTH(data) <= max);
 end;
 
+procedure TStudent.clearErrors;
+begin
+  self.errors := '';
+end;
+
 constructor TStudent.Create(pAdminNO: String);
 begin
+  self.errors := '';
   self.setAdminNO(pAdminNO);
 end;
 
 procedure TStudent.setAdminNO(pAdminNO: String);
 begin
- if checkFieldSize(pAdminNO, 4, 7) then
-    self.adminNO := pAdminNO;
+ if checkFieldSize(pAdminNO, 4, 7)
+ then self.adminNO := pAdminNO
+ else self.errors := self.errors+ #13#10+ 'AdminNO Field size must be between 4-7 characters'
 end;
 
 procedure TStudent.setEmail(pEmail: String);
@@ -89,6 +125,11 @@ begin
   result := self.email;
 end;
 
+function TStudent.getErrors: String;
+begin
+  result := self.errors;
+end;
+
 function TStudent.getFirstName: String;
 begin
  result := self.firstName;
@@ -107,6 +148,39 @@ end;
 function TStudent.getSurname: String;
 begin
  result := self.surname;
+end;
+
+{ TReport }
+
+function TReport.calcSymbol: Char;
+var symbol : Char;
+begin
+  symbol := 'A';
+  if self.aMark < 80 then symbol := 'B';
+  if self.aMark < 70 then symbol := 'C';
+  if self.aMark < 60 then symbol := 'D';
+  if self.aMark < 50 then symbol := 'E';
+  if self.aMark < 30 then symbol := 'F';
+
+  result := symbol;
+end;
+
+constructor TReport.Create(pAdminNo: String; pMark: Integer);
+begin
+  self.adminNO := pAdminNo;
+  self.aMark := pMark;
+end;
+
+function TReport.display: String;
+begin result := 'Admin No: '+#9+self.adminNO+' got '+IntToStr(self.aMark);
+end;
+
+function TReport.isPassed: Boolean;
+begin result := (self.aMark >= 30);
+end;
+
+procedure TReport.updateMark(pMark: Integer);
+begin self.aMark := pMark;
 end;
 
 end.

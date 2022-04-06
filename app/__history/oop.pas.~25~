@@ -183,8 +183,7 @@ begin result := (self.aMark >= 30);
 end;
 
 procedure TReport.updateMark(pMark: Integer);
-begin
-  if pMark > -2 then self.aMark := pMark;
+begin self.aMark := pMark;
 end;
 
 { TValidator }
