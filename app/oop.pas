@@ -184,6 +184,9 @@ end;
 
 procedure TReport.updateMark(pMark: Integer);
 begin
+{ Note: Mark range is limited from -1 to max.
+  -1 represents a student was absent / task not completed.
+}
   if pMark > -2 then self.aMark := pMark;
 end;
 
@@ -199,8 +202,14 @@ var iFlag : Boolean;
 begin
    iFlag := TRUE;
    iLoop := 1;
+   { Note: Checks each character of the string
+           and no issues found till end of String
+   }
    while ((iLoop < LENGTH(pIN)) AND iFlag) do
    begin
+    { Note: Checks that the character is in the alphabet
+            Checks both UPPER and LOWER chars, set flag if issue found
+    }
        if (pIn[iLoop] IN['A'..'Z','a'..'z'])
        then
        else
