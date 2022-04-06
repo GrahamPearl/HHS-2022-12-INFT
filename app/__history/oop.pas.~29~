@@ -3,6 +3,19 @@ unit oop;
 interface
 Uses SysUtils;
 
+type TValidator = class(TObject)
+  private
+    function checkOnlyInSet(pIn : String; pSet : String) : Boolean;
+  public
+  constructor Create();
+   function checkOnlyCharacters(pIn : String): Boolean;
+   function checkOnlyCharactersWithSpace(pIn : String): Boolean;
+   function checkOnlyDigits(pIn : String): Boolean;
+   function checkNotEmpty(pIn : String): Boolean;
+   function checkPassword(pIn : String): Boolean;
+end;
+
+
 type TReport = class(TObject)
     private
        adminNO   : String[7];
@@ -144,7 +157,16 @@ end;
 { TReport }
 
 function TReport.calcSymbol: Char;
-begin result := 'A';
+var symbol : Char;
+begin
+  symbol := 'A';
+  if self.aMark < 80 then symbol := 'B';
+  if self.aMark < 70 then symbol := 'C';
+  if self.aMark < 60 then symbol := 'D';
+  if self.aMark < 50 then symbol := 'E';
+  if self.aMark < 30 then symbol := 'F';
+
+  result := symbol;
 end;
 
 constructor TReport.Create(pAdminNo: String; pMark: Integer);
@@ -162,7 +184,62 @@ begin result := (self.aMark >= 30);
 end;
 
 procedure TReport.updateMark(pMark: Integer);
-begin self.aMark := pMark;
+begin
+{ Note: Mark range is limited from -1 to max.
+  -1 represents a student was absent / task not completed.
+}
+  if pMark > -2 then self.aMark := pMark;
+end;
+
+{ TValidator }
+
+function TValidator.checkNotEmpty(pIn: String): Boolean;
+begin result := (Length(pIn) > 0);
+end;
+
+function TValidator.checkOnlyCharacters(pIn: String): Boolean;
+begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ');
+end;
+
+function TValidator.checkOnlyCharactersWithSpace(pIn: String): Boolean;
+begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ ');
+end;
+
+function TValidator.checkOnlyDigits(pIn: String): Boolean;
+begin result := checkOnlyInSet(pIn, '0123456789');
+end;
+
+function TValidator.checkOnlyInSet(pIn, pSet: String): Boolean;
+var iFlag : Boolean;
+    iLoop : Integer;
+begin
+   iFlag := TRUE;
+   iLoop := 1;
+   { Note: Checks each character of the string
+           and no issues found till end of String
+   }
+   while ((iLoop < LENGTH(pIN)) AND iFlag) do
+   begin
+    { Note: Checks that the character is in the alphabet
+            Checks both UPPER and LOWER chars, set flag if issue found
+    }
+       if (pIn[iLoop] IN['A'..'Z','a'..'z',' '])
+       then
+       else
+          iFlag := FALSE;
+       INC(iLoop);
+     end;
+   result := iFlag;
+end;
+
+function TValidator.checkPassword(pIn: String): Boolean;
+begin
+
+end;
+
+constructor TValidator.Create;
+begin
+
 end;
 
 end.

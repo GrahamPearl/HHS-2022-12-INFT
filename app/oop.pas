@@ -5,6 +5,7 @@ Uses SysUtils;
 
 type TValidator = class(TObject)
   private
+    function checkOnlyInSet(pIn : String; pSet : String) : Boolean;
   public
   constructor Create();
    function checkOnlyCharacters(pIn : String): Boolean;
@@ -197,6 +198,18 @@ begin result := (Length(pIn) > 0);
 end;
 
 function TValidator.checkOnlyCharacters(pIn: String): Boolean;
+begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ');
+end;
+
+function TValidator.checkOnlyCharactersWithSpace(pIn: String): Boolean;
+begin result := checkOnlyInSet(pIn, 'ABCDEFGHIJLKMNOPQRSTUVWXYZ ');
+end;
+
+function TValidator.checkOnlyDigits(pIn: String): Boolean;
+begin result := checkOnlyInSet(pIn, '0123456789');
+end;
+
+function TValidator.checkOnlyInSet(pIn, pSet: String): Boolean;
 var iFlag : Boolean;
     iLoop : Integer;
 begin
@@ -208,25 +221,15 @@ begin
    while ((iLoop < LENGTH(pIN)) AND iFlag) do
    begin
     { Note: Checks that the character is in the alphabet
-            Checks both UPPER and LOWER chars, set flag if issue found
+            Set flag if issue found
     }
-       if (pIn[iLoop] IN['A'..'Z','a'..'z'])
+       if (POS(pIn[iLoop], pSET) > 0)
        then
        else
           iFlag := FALSE;
        INC(iLoop);
      end;
    result := iFlag;
-end;
-
-function TValidator.checkOnlyCharactersWithSpace(pIn: String): Boolean;
-begin
-
-end;
-
-function TValidator.checkOnlyDigits(pIn: String): Boolean;
-begin
-
 end;
 
 function TValidator.checkPassword(pIn: String): Boolean;
