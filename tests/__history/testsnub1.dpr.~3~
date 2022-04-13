@@ -1,0 +1,24 @@
+program testsnub1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils,
+  oop in '..\app\oop.pas';
+
+var aReport : TReport;
+
+begin
+  try
+    { TODO -oUser -cConsole Main : Insert code here }
+   aReport := TReport.Create('12345',50);
+    WriteLN('Loading');
+    WriteLN(aReport.display);
+    WriteLN('Closing');
+     ReadLN;
+
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

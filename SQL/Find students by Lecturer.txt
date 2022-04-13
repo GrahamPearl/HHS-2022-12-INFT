@@ -1,0 +1,8 @@
+SELECT lecturers.surname, lecturers.firstname, students.last_name, students.first_name
+FROM (subjects INNER JOIN 
+    (lecturers INNER JOIN link_subjects_to_lecturers 
+    ON lecturers.ID = link_subjects_to_lecturers.IDLecturer) 
+    ON subjects.ID = link_subjects_to_lecturers.IDSubject) 
+    INNER JOIN (students INNER JOIN link_subjects_to_students 
+    ON students.id = link_subjects_to_students.IDStudent) 
+    ON subjects.ID = link_subjects_to_students.IDSubject;
